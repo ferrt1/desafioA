@@ -122,6 +122,47 @@
         ]
     },
     "3": {
+        "titulo": "Nivel 3: Arrays vs Listas",
+        "items": [
+            {
+                "id": "array-item",
+                "texto": "Elementos de un mismo tipo",
+                "categoria": "arrays"
+            },
+            {
+                "id": "lista-item",
+                "texto": "Elementos de diferentes tipos",
+                "categoria": "listas"
+            },
+            {
+                "id": "static-item",
+                "texto": "Tamaño fijo",
+                "categoria": "arrays"
+            },
+            {
+                "id": "dynamic-item",
+                "texto": "Tamaño dinámico",
+                "categoria": "listas"
+            }
+        ],
+        "boxes": [
+            {
+                "id": "arrays",
+                "texto": "Arrays"
+            },
+            {
+                "id": "listas",
+                "texto": "Listas"
+            }
+        ],
+        "hints": [
+            "Los arrays contienen elementos de un mismo tipo y tienen tamaño fijo.",
+            "Las listas pueden contener elementos de distintos tipos y cambiar de tamaño.",
+            "Los arrays son más eficientes en acceso directo, pero menos flexibles.",
+            "Las listas permiten agregar y eliminar elementos dinámicamente."
+        ]
+    },
+    "4": {
         "titulo": "Nivel 4: Paradigmas de Programación",
         "items": [
             {
@@ -155,14 +196,9 @@
                 "categoria": "funcional"
             },
             {
-                "id": "estado-mutable-item",
-                "texto": "Estado Mutable",
-                "categoria": "imperativa"
-            },
-            {
-                "id": "estructuras-control-item",
-                "texto": "Estructuras de Control",
-                "categoria": "imperativa"
+                "id": "lambda-item",
+                "texto": "Expresiones lambda",
+                "categoria": "funcional"
             }
         ],
         "boxes": [
@@ -173,23 +209,155 @@
             {
                 "id": "funcional",
                 "texto": "Programación Funcional"
-            },
-            {
-                "id": "imperativa",
-                "texto": "Programación Imperativa"
             }
         ],
         "hints": [
             "La POO se basa en objetos y clases que modelan entidades del mundo real.",
-            "La programación imperativa describe el 'cómo' de la ejecución paso a paso.",
             "La herencia permite crear nuevas clases basadas en otras existentes.",
             "El polimorfismo permite que un mismo método funcione de diferentes formas.",
             "La programación funcional trata las funciones como valores y evita estados mutables.",
             "Las funciones puras siempre devuelven el mismo resultado para los mismos parámetros."
         ]
     },
-    "4": {
-        "titulo": "Nivel 5: Errores y Depuración",
+    "5": {
+        "titulo": "Nivel 5: Sobrecarga vs Sobreescritura",
+        "items": [
+            {
+                "id": "sobrecarga-item1",
+                "texto": "Método con distintos parámetros",
+                "categoria": "sobrecarga"
+            },
+            {
+                "id": "sobrecarga-item2",
+                "texto": "Mismo nombre, diferente número de argumentos",
+                "categoria": "sobrecarga"
+            },
+            {
+                "id": "sobreescritura-item1",
+                "texto": "Método heredado modificado",
+                "categoria": "sobreescritura"
+            },
+            {
+                "id": "sobreescritura-item2",
+                "texto": "Redefinir comportamiento en una subclase",
+                "categoria": "sobreescritura"
+            }
+        ],
+        "boxes": [
+            {
+                "id": "sobrecarga",
+                "texto": "Sobrecarga"
+            },
+            {
+                "id": "sobreescritura",
+                "texto": "Sobreescritura"
+            }
+        ],
+        "hints": [
+            "La sobrecarga ocurre cuando hay métodos con el mismo nombre pero diferentes parámetros en la misma clase.",
+            "La sobreescritura ocurre cuando una subclase redefine un método de su superclase.",
+            "La sobrecarga permite varias versiones de un método con distintas entradas.",
+            "La sobreescritura permite modificar la funcionalidad heredada."
+        ]
+    },
+    "6": {
+        "titulo": "Nivel 6: Interfaz vs Clase Abstracta",
+        "items": [
+            {
+                "id": "interfaz-item1",
+                "texto": "Solo define métodos, sin implementación",
+                "categoria": "interfaz"
+            },
+            {
+                "id": "interfaz-item2",
+                "texto": "Se implementa en múltiples clases",
+                "categoria": "interfaz"
+            },
+            {
+                "id": "abstracta-item1",
+                "texto": "Puede tener métodos implementados",
+                "categoria": "clase-abstracta"
+            },
+            {
+                "id": "abstracta-item2",
+                "texto": "Debe ser extendida, no instanciada",
+                "categoria": "clase-abstracta"
+            }
+        ],
+        "boxes": [
+            {
+                "id": "interfaz",
+                "texto": "Interfaz"
+            },
+            {
+                "id": "clase-abstracta",
+                "texto": "Clase Abstracta"
+            }
+        ],
+        "hints": [
+            "Las interfaces solo contienen la declaración de métodos sin implementación.",
+            "Las clases abstractas pueden tener tanto métodos implementados como abstractos.",
+            "Una clase puede implementar múltiples interfaces, pero solo heredar de una clase abstracta.",
+            "Las interfaces permiten definir contratos para múltiples clases."
+        ]
+    },
+    "7": {
+        "titulo": "Nivel 7: Tipos de Colecciones",
+        "items": [
+            {
+                "id": "arraylist-item",
+                "texto": "Lista dinámica basada en array",
+                "categoria": "lista"
+            },
+            {
+                "id": "linkedlist-item",
+                "texto": "Lista enlazada",
+                "categoria": "lista"
+            },
+            {
+                "id": "hashmap-item",
+                "texto": "Clave-valor (HashMap)",
+                "categoria": "mapa"
+            },
+            {
+                "id": "treemap-item",
+                "texto": "Ordenado por clave (TreeMap)",
+                "categoria": "mapa"
+            },
+            {
+                "id": "hashset-item",
+                "texto": "Conjunto sin duplicados (HashSet)",
+                "categoria": "conjunto"
+            },
+            {
+                "id": "treeset-item",
+                "texto": "Ordenado sin duplicados (TreeSet)",
+                "categoria": "conjunto"
+            }
+        ],
+        "boxes": [
+            {
+                "id": "lista",
+                "texto": "Listas"
+            },
+            {
+                "id": "mapa",
+                "texto": "Mapas"
+            },
+            {
+                "id": "conjunto",
+                "texto": "Conjuntos"
+            }
+        ],
+        "hints": [
+            "Las listas permiten almacenar elementos ordenados.",
+            "Los mapas asocian claves con valores.",
+            "Los conjuntos no permiten elementos duplicados.",
+            "Las listas enlazadas tienen mejor rendimiento en inserciones y eliminaciones que los ArrayLists."
+        ]
+    },
+    "8": {
+        "titulo": "Nivel 8: Errores y Depuración",
         "items": [
             {
                 "id": "sintaxis-item",
@@ -212,13 +380,13 @@
                 "categoria": "logico"
             },
             {
-                "id": "test-unitario-item",
-                "texto": "Prueba unitaria",
+                "id": "assert-item",
+                "texto": "Asserts",
                 "categoria": "unitaria"
             },
             {
-                "id": "assert-item",
-                "texto": "Asserts",
+                "id": "error-item",
+                "texto": "Detectar errores en las primeras etapas",
                 "categoria": "unitaria"
             }
         ],

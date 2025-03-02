@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         let response = await fetch("/get_levels");
         let data = await response.json();
-        window.niveles = data;  // Guardamos los niveles en una variable global
+        window.niveles = data;  
         iniciarNivel(1);
     } catch (error) {
         console.error("Error al cargar los niveles:", error);
@@ -167,4 +167,9 @@ document.getElementById("hint-button").addEventListener("click", () => {
             hintBox.classList.add("show"); 
         }
     }
+});
+
+document.getElementById("close-hint").addEventListener("click", () => {
+    const hintBox = document.getElementById("hint-box");
+    hintBox.classList.remove("show"); 
 });
