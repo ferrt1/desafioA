@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nivel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            background: #ffffff;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #0277bd;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #90caf9;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0288d1;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #01579b;
+        }
+        .btn-secondary {
+            background-color: #4fc3f7;
+        }
+        .btn-secondary:hover {
+            background-color: #039be5;
+        }
+    </style>
+    <script>
+        function agregarCampo(contenedorId, tipo) {
+            let contenedor = document.getElementById(contenedorId);
+            let div = document.createElement("div");
+
+            if (tipo === "item") {
+                div.innerHTML = `
+                    <input type="text" placeholder="Texto del Item" name="item_texto[]" required>
+                    <input type="text" placeholder="Categoría" name="item_categoria[]" required>
+                `;
+            } else if (tipo === "box") {
+                div.innerHTML = `
+                    <input type="text" placeholder="ID del Box" name="box_id[]" required>
+                    <input type="text" placeholder="Texto del Box" name="box_texto[]" required>
+                `;
+            } else if (tipo === "hint") {
+                div.innerHTML = `<input type="text" placeholder="Pista" name="hint[]" required>`;
+            }
+
+            contenedor.appendChild(div);
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            
+            let formData = new FormData(document.getElementById("nivelForm"));
+            let password = formData.get("password");
+
+            let data = {
+                titulo: formData.get("titulo").trim(),
+                items: [],
+                boxes: [],
+                hints: [],
+                password: password.trim()
+            };
+
+            let textos = formData.getAll("item_texto[]");
+            let categorias = formData.getAll("item_categoria[]");
+            for (let i = 0; i < textos.length; i++) {
+                if (textos[i].trim() && categorias[i].trim()) {
+                    data.items.push({ id: textos[i] + "-item", texto: textos[i].trim(), categoria: categorias[i].trim() });
+                }
+            }
+
+            let boxIds = formData.getAll("box_id[]");
+            let boxTextos = formData.getAll("box_texto[]");
+            for (let i = 0; i < boxIds.length; i++) {
+                if (boxIds[i].trim() && boxTextos[i].trim()) {
+                    data.boxes.push({ id: boxIds[i].trim(), texto: boxTextos[i].trim() });
+                }
+            }
+
+            data.hints = formData.getAll("hint[]").map(hint => hint.trim()).filter(hint => hint !== "");
+
+            // Validaciones
+            if (!data.titulo) {
+                alert("El título no puede estar vacío.");
+                return;
+            }
+            if (data.items.length === 0) {
+                alert("Debes agregar al menos un item con su categoría.");
+                return;
+            }
+            if (data.boxes.length === 0) {
+                alert("Debes agregar al menos un box.");
+                return;
+            }
+            if (data.hints.length === 0) {
+                alert("Debes agregar al menos una pista.");
+                return;
+            }
+            if (!data.password) {
+                alert("Debes ingresar una contraseña.");
+                return;
+            }
+
+            fetch("/update_levels", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.error) {
+                    alert("Error: " + result.error);
+                } else {
+                    alert(result.message);
+                    document.getElementById("nivelForm").reset();
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Agregar un Nuevo Nivel</h2>
+        <form id="nivelForm" onsubmit="enviarFormulario(event)">
+            <input type="text" name="titulo" placeholder="Título del Nivel" required><br><br>
+
+            <h3>Items</h3>
+            <div id="itemsContainer"></div>
+            <button type="button" class="btn-secondary" onclick="agregarCampo('itemsContainer', 'item')">Agregar Item</button>
+
+            <h3>Boxes</h3>
+            <div id="boxesContainer"></div>
+            <button type="button" class="btn-secondary" onclick="agregarCampo('boxesContainer', 'box')">Agregar Box</button>
+
+            <h3>Pistas</h3>
+            <div id="hintsContainer"></div>
+            <button type="button" class="btn-secondary" onclick="agregarCampo('hintsContainer', 'hint')">Agregar Pista</button>
+
+            <h3>Contraseña</h3>
+            <input type="password" name="password" id="password" placeholder="Ingrese la contraseña" required><br><br>
+
+            <button type="submit">Guardar Nivel</button>
+        </form>
+    </div>
+</body>
+</html>
