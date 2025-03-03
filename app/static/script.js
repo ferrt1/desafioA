@@ -173,3 +173,7 @@ document.getElementById("close-hint").addEventListener("click", () => {
     const hintBox = document.getElementById("hint-box");
     hintBox.classList.remove("show"); 
 });
+
+document.getElementById("close-intro").addEventListener("click", function () {
+    document.getElementById("intro-screen").style.display = "none";
+});

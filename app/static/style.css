@@ -11,6 +11,59 @@ body {
   background-color: #E3F2FD; /* Azul muy claro */
 }
 
+#intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.842); /* Fondo semitransparente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+  color: white;
+}
+
+.intro-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.intro-gif {
+  width: 50%; 
+  max-width: 500px; 
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.intro-text {
+  font-size: 16px;
+  margin: 15px 20px;
+  max-width: 400px;
+}
+
+#close-intro {
+  background: #42A5F5;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+#close-intro:hover {
+  background: #1E88E5;
+}
+
+
 h2 {
   margin-bottom: 0;
 }
