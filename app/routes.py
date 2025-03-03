@@ -18,7 +18,7 @@ def form():
 
 @app.route('/get_levels')
 def get_levels():
-    """ Devuelve el JSON de niveles. """
+
     if os.path.exists(LEVELS_FILE):
         try:
             with open(LEVELS_FILE, "r", encoding="utf-8") as file:
@@ -33,7 +33,7 @@ def get_levels():
 
 @app.route('/update_levels', methods=['POST'])
 def update_levels():
-    """ Recibe un nuevo nivel y lo agrega al JSON. """
+
     try:
         new_level = request.get_json()
 
