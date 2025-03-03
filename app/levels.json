@@ -305,16 +305,6 @@
         "titulo": "Nivel 7: Tipos de Colecciones",
         "items": [
             {
-                "id": "arraylist-item",
-                "texto": "Lista dinámica basada en array",
-                "categoria": "lista"
-            },
-            {
-                "id": "linkedlist-item",
-                "texto": "Lista enlazada",
-                "categoria": "lista"
-            },
-            {
                 "id": "hashmap-item",
                 "texto": "Clave-valor (HashMap)",
                 "categoria": "mapa"
@@ -337,10 +327,6 @@
         ],
         "boxes": [
             {
-                "id": "lista",
-                "texto": "Listas"
-            },
-            {
                 "id": "mapa",
                 "texto": "Mapas"
             },
@@ -350,10 +336,8 @@
             }
         ],
         "hints": [
-            "Las listas permiten almacenar elementos ordenados.",
             "Los mapas asocian claves con valores.",
-            "Los conjuntos no permiten elementos duplicados.",
-            "Las listas enlazadas tienen mejor rendimiento en inserciones y eliminaciones que los ArrayLists."
+            "Los conjuntos no permiten elementos duplicados."
         ]
     },
     "8": {
@@ -378,16 +362,6 @@
                 "id": "null-item",
                 "texto": "Acceso a null",
                 "categoria": "logico"
-            },
-            {
-                "id": "assert-item",
-                "texto": "Asserts",
-                "categoria": "unitaria"
-            },
-            {
-                "id": "error-item",
-                "texto": "Detectar errores en las primeras etapas",
-                "categoria": "unitaria"
             }
         ],
         "boxes": [
@@ -398,17 +372,50 @@
             {
                 "id": "logico",
                 "texto": "Errores Lógicos"
-            },
-            {
-                "id": "unitaria",
-                "texto": "Pruebas Unitarias"
             }
         ],
         "hints": [
             "Los errores de sintaxis ocurren cuando el código no sigue las reglas del lenguaje.",
-            "Los errores lógicos no detienen el programa, pero producen resultados incorrectos.",
-            "Las pruebas unitarias ayudan a verificar que el código funciona correctamente.",
-            "Los asserts permiten comprobar que el programa cumple con ciertas condiciones."
+            "Los errores lógicos no detienen el programa, pero producen resultados incorrectos."
         ]
-    }
+    },
+    "9": {
+    "titulo": "Nivel 9: Pruebas Unitarias vs Pruebas Funcionales",
+    "items": [
+        {
+            "id": "prueba-unitaria-item",
+            "texto": "Prueba de unidades pequeñas",
+            "categoria": "unitarias"
+        },
+        {
+            "id": "prueba-funcional-item",
+            "texto": "Prueba del sistema completo",
+            "categoria": "funcionales"
+        },
+        {
+            "id": "mock-item",
+            "texto": "Se prueban funciones, procedimientos, métodos",
+            "categoria": "unitarias"
+        },
+        {
+            "id": "integracion-item",
+            "texto": "Se prueban interacciones de usuarios y funcionalidad de extremo a extremo.",
+            "categoria": "funcionales"
+        }
+    ],
+    "boxes": [
+        {
+            "id": "unitarias",
+            "texto": "Pruebas Unitarias"
+        },
+        {
+            "id": "funcionales",
+            "texto": "Pruebas Funcionales"
+        }
+    ],
+    "hints": [
+        "Las pruebas unitarias se enfocan en componentes pequeños y aislados del sistema.",
+        "Las pruebas funcionales verifican que el sistema funcione como un todo, simulando la interacción del usuario."
+    ]
+}
 }
